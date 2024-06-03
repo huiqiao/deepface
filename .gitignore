@@ -8,7 +8,6 @@ Pipfile.lock
 .idea/
 deepface.egg-info/
 tests/dataset/*.pkl
-tests/*.ipynb
 tests/*.csv
 *.pyc
 **/.coverage

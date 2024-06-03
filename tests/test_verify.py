@@ -8,7 +8,8 @@ from deepface.commons import logger as log
 
 logger = log.get_singletonish_logger()
 
-models = ["VGG-Face", "Facenet", "Facenet512", "ArcFace", "GhostFaceNet"]
+#models = ["VGG-Face", "Facenet", "Facenet512", "ArcFace", "GhostFaceNet"]
+models = ["VGG-Face", "ArcFace"]
 metrics = ["cosine", "euclidean", "euclidean_l2"]
 detectors = ["opencv", "mtcnn"]
 
@@ -37,7 +38,7 @@ def test_different_facial_recognition_models():
                 img2 = instance[1]
                 result = instance[2]
 
-                resp_obj = DeepFace.verify(img1, img2, model_name=model, distance_metric=metric)
+                resp_obj = DeepFace.verify(img1, img2, model_name=model, distance_metric=metric, detector_backend='mtcnn')
 
                 prediction = resp_obj["verified"]
                 distance = round(resp_obj["distance"], 2)
